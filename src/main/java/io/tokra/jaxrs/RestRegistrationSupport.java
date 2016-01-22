@@ -10,15 +10,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class RestRegistrationSupport {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(RestRegistrationSupport.class);
-	
-	private RestRegistrationSupport(){}
+
+	private RestRegistrationSupport() {
+	}
 
 	/**
 	 * Method for simple registration of singletons to {@link Application},
 	 * using {@link ServiceLoader}
 	 * 
+	 * @since 1.0
 	 * @param singletons
 	 * @param clazz
 	 */

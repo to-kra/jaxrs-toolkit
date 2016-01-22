@@ -10,12 +10,18 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class JaxrsAnnotationsSupport {
-	
+public final class JaxrsAnnotationsSupport {
+
 	private static Logger logger = LoggerFactory.getLogger(JaxrsAnnotationsSupport.class);
-	
-	/** 
-	 * Returns {@link ApplicationPath} value from {@link Application} application
+
+	private JaxrsAnnotationsSupport() {
+	}
+
+	/**
+	 * Returns {@link ApplicationPath} value from {@link Application}
+	 * application
+	 * 
+	 * @since 1.0
 	 * @param applicationClazz
 	 * @return {@link String} applicationPath
 	 */
@@ -32,9 +38,12 @@ public class JaxrsAnnotationsSupport {
 		}
 		return applicationPath;
 	}
-	
-	/** 
-	 * Returns {@link ApplicationPath} value from {@link Application} application
+
+	/**
+	 * Returns {@link ApplicationPath} value from {@link Application}
+	 * application
+	 * 
+	 * @since 1.0
 	 * @param className
 	 * @return {@link String} applicationPath
 	 */
@@ -50,19 +59,21 @@ public class JaxrsAnnotationsSupport {
 		}
 		return applicationPath;
 	}
-	
+
 	/**
 	 * Gets rest api {@link Path} path from its resource class
+	 * 
+	 * @since 1.0
 	 * @param apiClazz
 	 * @return String rest api path
 	 */
-	public static String getRestApiPath(Class<?> apiClazz){
+	public static String getRestApiPath(Class<?> apiClazz) {
 		Annotation[] annotations = apiClazz.getAnnotations();
-		for(Annotation annotation : annotations){
-		    if(annotation instanceof Path){
-		        Path pathAnnotation = (Path) annotation;
-		        return pathAnnotation.value();
-		    }
+		for (Annotation annotation : annotations) {
+			if (annotation instanceof Path) {
+				Path pathAnnotation = (Path) annotation;
+				return pathAnnotation.value();
+			}
 		}
 		return "";
 	}
